@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Money_Fragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrainlayoutnyamoneyxmlkenapapanjgangapapa"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/user_monthly_spending"
+            android:name="com.hzzzey.andromaid.this_month_money_flows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="466dp" />
+
+        <fragment
+            android:id="@+id/today_money_flow"
+            android:name="com.hzzzey.andromaid.today_moneyflow_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="81dp" />
+
+        <fragment
+            android:id="@+id/user_money_information"
+            android:name="com.hzzzey.andromaid.ui.your_money_information_and_surplus_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="223dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
