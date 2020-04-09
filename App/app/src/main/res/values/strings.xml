@@ -6,6 +6,18 @@
 
     <string name="title_money">My Money</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="today_spending_title">Today\'s Spending</string>
+    <string name="todays_money_left_title">for today</string>
+    <string name="daily_money_title">Daily Money</string>
+    <string name="surplus_money_title">Surplus Money</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_detailed__monthly">Monthly Spending</string>
+    <string name="title_activity_about">About</string>
+    <string name="titlePopUpRename">How i should call you?</string>
+    <string name="titlePopUpEditMonthly">How Much Should It Be?</string>
+    <string name="DetailedMoneyTitle">Your Money Details</string>
+    <string name="DetailedMoneyBottom">Is there\'s Something Wrong?</string>
+    <string name="yesSomethingWrongData">My Money left for this month is not correct</string>
+    <string name="editMonthly">I want to change my Monthly Allocation</string>
+
 </resources>

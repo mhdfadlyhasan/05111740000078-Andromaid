@@ -10,70 +10,70 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link this_month_money_flows.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link this_month_money_flows#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class this_month_money_flows extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private BarChart mBarchart;
     private OnFragmentInteractionListener mListener;
 
     public this_month_money_flows() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment this_month_money_flows.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static this_month_money_flows newInstance(String param1, String param2) {
+    public static this_month_money_flows newInstance() {
         this_month_money_flows fragment = new this_month_money_flows();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_this_month_money_flows, container, false);
+        View view =inflater.inflate(R.layout.fragment_this_month_money_flows, container, false);
+        mBarchart = view.findViewById(R.id.MonthlybarChart);
+        fillchardata();
+        return view;
     }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+    public void fillchardata()
+    {
+        //TODO perbaiki Chart
+//        ArrayList<String> xAxisLables = new ArrayList();
+        List<BarEntry> barEntries = new ArrayList<>();
+        for (int i=1;i<31;i++)
+        {
+            barEntries.add(new BarEntry(i,10000*i));
+//            xAxisLables.add(i+"");
         }
+        BarDataSet barDataSet = new BarDataSet(barEntries,"Spending");
+        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        BarData barData = new BarData((barDataSet));
+        barData.setDrawValues(false);
+        mBarchart.setVisibility(View.VISIBLE);
+        mBarchart.getAxisLeft().setDrawGridLines(false);
+        mBarchart.getXAxis().setDrawGridLines(false);
+//        mBarchart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(xAxisLables));
+        mBarchart.getAxisRight().setDrawGridLines(false);
+        mBarchart.getAxisRight().setEnabled(false);
+        mBarchart.animateY(2000);
+        mBarchart.setData(barData);
+        mBarchart.setTouchEnabled(false);
+        Description desc= new Description();
+        desc.setText("This month spending");
+        mBarchart.setDescription(desc);
+        mBarchart.invalidate();
+
     }
 
     @Override
@@ -86,25 +86,13 @@ public class this_month_money_flows extends Fragment {
                     + " must implement OnFragmentInteractionListener");
         }
     }
-
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }
