@@ -8,19 +8,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Adapter_today_spending extends RecyclerView.Adapter<Adapter_today_spending.ViewHolder> {
+import java.util.List;
 
-    private int[] mDataset;
+public class Adapter_today_spending extends RecyclerView.Adapter<Adapter_today_spending.ViewHolder> {
+    private List mDataset;
+    private List mSpending;
     public class ViewHolder extends  RecyclerView.ViewHolder{
 //todo masih belum ada informasi recycler
-        TextView TextSpending;
+        TextView TextSpending, TimeSpending;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             TextSpending = itemView.findViewById(R.id.layout_today_spending_spends_information);
+            TimeSpending = itemView.findViewById(R.id.timeSpend);
         }
     }
-    public Adapter_today_spending(int[] myDataset) {
-        mDataset = myDataset;
+
+    public Adapter_today_spending(List SpendingDataSet,List TimeDataSet ) {
+        mDataset =  TimeDataSet;
+        mSpending = SpendingDataSet;
     }
 
     @NonNull
@@ -33,12 +38,13 @@ public class Adapter_today_spending extends RecyclerView.Adapter<Adapter_today_s
 
     @Override
     public void onBindViewHolder(@NonNull Adapter_today_spending.ViewHolder holder, int position) {
-        holder.TextSpending.setText(position+"");
+        holder.TextSpending.setText(mSpending.get(position).toString());
+        holder.TimeSpending.setText(mDataset.get(position).toString());
     }
 
     @Override
     public int getItemCount() {
-        return 30;
+        return mDataset.size();
     }
 
 }

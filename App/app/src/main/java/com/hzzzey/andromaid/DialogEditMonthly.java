@@ -30,7 +30,6 @@ public class DialogEditMonthly extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 EditText newMoney = view.findViewById(R.id.NewMoneyMonthly);
-                //todo get nilai di newMoney, kemudian dijadikan float dan di lempar ke listener
                 Double FixedMoney = Double.parseDouble(newMoney.getText().toString());
                 listener.MonthlyChangeIsYes(FixedMoney);
             }
