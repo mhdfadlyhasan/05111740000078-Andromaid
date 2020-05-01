@@ -17,11 +17,20 @@ public class Adapter_Chat_Input  extends RecyclerView.Adapter<Adapter_Chat_Input
     {
         pesan = dataSet;
     }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (pesan.get(position).isSendByUser)  return 1;
+        else return 0;
+    }
+
     @NonNull
     @Override
     public Adapter_Chat_Input.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.d("Errors", "data Tidak null " + pesan.size());
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_chat_layout_user,parent,false);
+        View v ;
+        if(viewType==1) v = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_chat_layout_user,parent,false);
+        else v = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_chat_layout_andromaid,parent,false);
         return new ViewHolder(v);
     }
 

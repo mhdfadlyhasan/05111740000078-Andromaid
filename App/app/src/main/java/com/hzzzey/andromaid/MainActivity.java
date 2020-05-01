@@ -1,8 +1,7 @@
 package com.hzzzey.andromaid;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,12 +18,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.hzzzey.andromaid.SpendingContract.SpendingEntry;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hzzzey.andromaid.ui.your_money_information_and_surplus_money;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener, Money_Fragment.Money_Fragment_Listener,
         PopUpRename.PopUpRenameListener,this_month_money_flows.OnFragmentInteractionListener,
@@ -35,16 +30,20 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     float dY;
     int lastAction;
     //todo ini cara set db
-    SpendingDb dbHelper = SpendingDb.getInstance(this);
     private User user = User.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         user.init(this);//ini fungsi untuk memasang context di shared prefrence, ntah kenapa harus ada
         setContentView(R.layout.activity_main);
+
+        if(user.get_UserName() == "Non" || user.get_MonthlyMoney() == 0.01 || user.get_LeftMoney() == 0.01)
+        {
+            startActivity(new Intent(this,registrationChat.class));
+            finish();
+            return;
+        }
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_Money)
                 .build();
@@ -52,30 +51,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
         dragView = findViewById(R.id.draggable_view);
-        Toast.makeText(this,user.get_UserName()+" "+user.get_MonthlyMoney(),Toast.LENGTH_SHORT).show();
         dragView.setOnTouchListener(this);
     }
     @Override
     public void onFragmentInteraction(Uri uri){
 
     }
-
-    public void insert_spending(Double Angka)
-    {
-        Date date = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.set(Calendar.HOUR_OF_DAY, 6);// for 6 hour
-        calendar.set(Calendar.DAY_OF_MONTH, 4);
-        calendar.set(Calendar.MINUTE, 0);// for 0 min
-        calendar.set(Calendar.SECOND, 0);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(SpendingEntry.SPENDING_AMOUNT, Angka+"");
-        long newRowId = db.insert(SpendingEntry.TABLE_NAME,null,values);
-        Toast.makeText(this,newRowId+"",Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -125,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
             case MotionEvent.ACTION_UP:
                 if (lastAction == MotionEvent.ACTION_DOWN)
+                    //todo chat input
                     startActivityForResult(new Intent(this,ChatInput.class),0);
                 break;
             default:
@@ -140,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == NeedRefresh)
         {
+
             Refresh();
         }
     }

@@ -26,10 +26,12 @@ public class DialogEditMonthly extends DialogFragment {
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         final View view = inflater.inflate(R.layout.activity_dialog_edit_monthly,null);
         builder.setView(view);
+        builder.setTitle("How much money for your monthly allocation?");
+        final EditText newMoney = view.findViewById(R.id.NewMoneyMonthly);
+        newMoney.setText(User.getInstance().get_MonthlyMoney()+"");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                EditText newMoney = view.findViewById(R.id.NewMoneyMonthly);
                 Double FixedMoney = Double.parseDouble(newMoney.getText().toString());
                 listener.MonthlyChangeIsYes(FixedMoney);
             }

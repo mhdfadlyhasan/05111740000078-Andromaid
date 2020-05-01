@@ -11,6 +11,7 @@ import android.widget.EditText;
 import androidx.fragment.app.DialogFragment;
 
 public class PopUpRename extends DialogFragment {
+    User user = User.getInstance();
     private PopUpRenameListener listener;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -18,11 +19,12 @@ public class PopUpRename extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         final View view = inflater.inflate(R.layout.activity_pop_up_rename,null);
+        final EditText editText = view.findViewById(R.id.NewName);
+        editText.setText(user.get_UserName());
         builder.setView(view);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                final EditText editText = view.findViewById(R.id.NewName);
                 String Name = editText.getText().toString();
                 listener.changeName(Name);
             }

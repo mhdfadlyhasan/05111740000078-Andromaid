@@ -2,7 +2,6 @@ package com.hzzzey.andromaid;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.AlertDialog;
@@ -22,13 +21,16 @@ public class editLeft extends DialogFragment {
         super.onCreateDialog(savedInstanceState);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = requireActivity().getLayoutInflater();
-        final View view = inflater.inflate(R.layout.activity_edit_left, null);
+        final View view = inflater.inflate(R.layout.activity_money_input, null);
         builder.setView(view);
+
+        final EditText InputMoney = view.findViewById(R.id.MoneyInput);
+        InputMoney.setText(User.getInstance().get_LeftMoney()+"");
+        builder.setTitle("How much should it be?");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                EditText newMoney = view.findViewById(R.id.NewMoneyLeft);
-                Double FixedMoney = Double.parseDouble(newMoney.getText().toString());
+                Double FixedMoney = Double.parseDouble(InputMoney.getText().toString());
                 listener.LeftChangeIsYes(FixedMoney);
             }
         });

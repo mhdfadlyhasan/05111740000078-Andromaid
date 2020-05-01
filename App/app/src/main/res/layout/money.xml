@@ -18,12 +18,11 @@
             android:name="com.hzzzey.andromaid.today_moneyflow_fragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_money_information" />
+            app:layout_constraintTop_toBottomOf="@+id/fragment_money_information" />
 
         <fragment
             android:id="@+id/user_monthly_spending"
@@ -33,18 +32,17 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/user_money_information"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_money_information"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <fragment
-            android:id="@+id/user_money_information"
-            android:name="com.hzzzey.andromaid.ui.your_money_information_and_surplus_money"
+            android:id="@+id/fragment_money_information"
+            android:name="com.hzzzey.andromaid.Fragment_Money_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/today_money_flow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

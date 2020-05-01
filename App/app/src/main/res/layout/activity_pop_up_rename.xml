@@ -26,8 +26,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="Doctor" />
+            android:inputType="textPersonName" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

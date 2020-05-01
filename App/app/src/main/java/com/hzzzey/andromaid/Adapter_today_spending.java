@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class Adapter_today_spending extends RecyclerView.Adapter<Adapter_today_spending.ViewHolder> {
-    private List mDataset;
-    private List mSpending;
+    private List<todayspending> mSpending;
     public class ViewHolder extends  RecyclerView.ViewHolder{
 //todo masih belum ada informasi recycler
         TextView TextSpending, TimeSpending;
@@ -23,8 +22,7 @@ public class Adapter_today_spending extends RecyclerView.Adapter<Adapter_today_s
         }
     }
 
-    public Adapter_today_spending(List SpendingDataSet,List TimeDataSet ) {
-        mDataset =  TimeDataSet;
+    public Adapter_today_spending(List SpendingDataSet ) {
         mSpending = SpendingDataSet;
     }
 
@@ -38,13 +36,13 @@ public class Adapter_today_spending extends RecyclerView.Adapter<Adapter_today_s
 
     @Override
     public void onBindViewHolder(@NonNull Adapter_today_spending.ViewHolder holder, int position) {
-        holder.TextSpending.setText(mSpending.get(position).toString());
-        holder.TimeSpending.setText(mDataset.get(position).toString());
+        holder.TextSpending.setText(mSpending.get(position).spending);
+        holder.TimeSpending.setText(mSpending.get(position).time);
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return mSpending.size();
     }
 
 }

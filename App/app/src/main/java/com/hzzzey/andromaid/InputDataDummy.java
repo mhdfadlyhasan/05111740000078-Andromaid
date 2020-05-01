@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class InputDataDummy extends AppCompatActivity {
-    SpendingDb dbHelper = SpendingDb.getInstance(this);
     private User user = User.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +29,6 @@ public class InputDataDummy extends AppCompatActivity {
                 break;
             case R.id.buttonAddSpending:
                 data = findViewById(R.id.SpendingInput);
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                ContentValues values = new ContentValues();
-                values.put(SpendingContract.SpendingEntry.SPENDING_AMOUNT, data.getText().toString());
-                db.insert(SpendingContract.SpendingEntry.TABLE_NAME,null,values);
                 user.spend(Double.parseDouble(data.getText().toString()));
                 setResult(1,null);
                 break;
