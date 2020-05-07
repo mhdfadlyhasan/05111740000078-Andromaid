@@ -23,7 +23,7 @@ import com.hzzzey.andromaid.ui.your_money_information_and_surplus_money;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener, Money_Fragment.Money_Fragment_Listener,
         PopUpRename.PopUpRenameListener,this_month_money_flows.OnFragmentInteractionListener,
-        your_money_information_and_surplus_money.OnFragmentInteractionListener
+        your_money_information_and_surplus_money.OnFragmentInteractionListener, Adapter_List_and_Task.onTaskScheduleLongClick
 {
     View dragView;
     float dX;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         }
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_Money)
+                R.id.fragment_home, R.id.navigation_Money, R.id.fragmentTask)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -69,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         switch (item.getItemId())
         {
+            case R.id.Schedule:
+                startActivity(new Intent(this,Weekly_Schedule.class));
+                return true;
             case R.id.CallnameChange:
                 PopUpRename popUpRenames = new PopUpRename();
                 popUpRenames.show(manager,"ok");
@@ -76,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             case R.id.about:
                 startActivity(new Intent(this,About.class));
                 return true;
+            case R.id.tasks:
+                startActivity(new Intent(this,Tasks.class));
+                return true;
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -122,8 +129,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == NeedRefresh)
         {
-
             Refresh();
         }
+    }
+
+    @Override
+    public void onItemLongClick(int position) {
+
     }
 }

@@ -2,20 +2,18 @@ package com.hzzzey.andromaid;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-public class DialogEditMonthly extends DialogFragment {
+public class DialogEditMonthly extends DialogFragment  {
 
     public DialogEditMonthlyListener listener;
     @NonNull

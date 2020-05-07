@@ -1,5 +1,6 @@
 package com.hzzzey.andromaid;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,7 +11,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -18,7 +18,6 @@ import java.util.List;
 
 public class ChatInput extends AppCompatActivity implements Adapter_chat_choices.OnChoiceListener, DialogInputSpending.OnSpendListener {
 
-    final Handler handler = new Handler();
     User user = User.getInstance();
     private RecyclerView mChatRecycler;
     private RecyclerView mChoicesRecycler;
@@ -84,7 +83,7 @@ public class ChatInput extends AppCompatActivity implements Adapter_chat_choices
         Log.d("Chat",position +"");//nentukan choices disini
         BaseChoice result = ListChoices.get(position);
         clearChoice();
-        if(result.type!=USER_SPEND_RETRY)addMessage(true,"now",result.Content);
+        if(result.type!=USER_SPEND_RETRY && result.type!=NEW_TASK_RETRY )addMessage(true,"now",result.Content);
         switch (result.type)
         {
             case BACK_TO_MAIN_MENU:
@@ -115,6 +114,17 @@ public class ChatInput extends AppCompatActivity implements Adapter_chat_choices
                 setResult(1,new Intent());
                 main_menu_after();
                 break;
+            case NEW_TASK:
+                addChoices(NEW_TASK_RETRY,"I want to make new task!");
+                addChoices(CANCEL,"Cancel that");
+                startActivityForResult(new Intent(this,InputTask.class),0);
+                break;
+
+            case NEW_TASK_RETRY:
+                addChoices(NEW_TASK_RETRY,"I want to make new task!");
+                addChoices(CANCEL,"Cancel that");
+                startActivityForResult(new Intent(this,InputTask.class),0);
+                break;
             case END:
                 End_Chat();
                 break;
@@ -132,6 +142,7 @@ public class ChatInput extends AppCompatActivity implements Adapter_chat_choices
     {
         addChoices(USER_SPEND,"I spend some money");
         addChoices(SHOW_TODAY_SPENDING,"How much did i spent today?");
+        addChoices(NEW_TASK,"I want to make new task!");
         addChoices(END,"Nothing... Just checking in");
     }
     private void main_menu_after()
@@ -139,6 +150,7 @@ public class ChatInput extends AppCompatActivity implements Adapter_chat_choices
         addMessage(false,"now","Anything else? ");
         addChoices(USER_SPEND,"I spend some money");
         addChoices(SHOW_TODAY_SPENDING,"How much did i spent today?");
+        addChoices(NEW_TASK,"I want to make new task!");
         addChoices(END,"That's all, thank you...");
     }
     private void refresh_menu()//todo panggil refresh ketika chat baru telah diisi https://medium.com/@suragch/updating-data-in-an-android-recyclerview-842e56adbfd8
@@ -227,5 +239,28 @@ public class ChatInput extends AppCompatActivity implements Adapter_chat_choices
     final int SPEND_ACCEPTED = 7;//reminder, di dialog input ada deklarasi sendiri
     final int SPEND_DECLINE = 8;
     final int SPEND_CONFIRMED = 9;
+    final int NEW_TASK = 10;
+    final int NEW_TASK_RETRY = 11;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 1)
+        {
+            addMessage(false,"now","I have write this task...");
+            clearChoice();
+            main_menu_after();
+            refresh_menu();
+            mChatRecycler.scrollToPosition(mChatRecycler.getAdapter().getItemCount()-1);
+        }
+        else
+        {
+            addMessage(false,"now","I haven't write this task... some problems may occured");
+            clearChoice();
+            main_menu_after();
+            refresh_menu();
+            mChatRecycler.scrollToPosition(mChatRecycler.getAdapter().getItemCount()-1);
+        }
+    }
 }
 

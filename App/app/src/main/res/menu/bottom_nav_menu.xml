@@ -6,7 +6,7 @@
         android:icon="@drawable/money"
         android:title="Money" />
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_schedule"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
 </menu>

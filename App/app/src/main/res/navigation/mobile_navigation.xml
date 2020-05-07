@@ -3,17 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_Money">
+    app:startDestination="@id/navigation_schedule">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.hzzzey.andromaid.ui.home.HomeFragment"
+        android:id="@+id/navigation_schedule"
+        android:name="com.hzzzey.andromaid.ScheduleFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/deprc" />
 
     <fragment
         android:id="@+id/navigation_Money"
         android:name="com.hzzzey.andromaid.Money_Fragment"
         android:label="My Money"
         tools:layout="@layout/money" />
+    <fragment
+        android:id="@+id/fragmentTask"
+        android:name="com.hzzzey.andromaid.FragmentTask"
+        android:label="My Tasks"
+        tools:layout="@layout/fragment_task" />
 </navigation>

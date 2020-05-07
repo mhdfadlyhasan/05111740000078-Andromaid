@@ -8,9 +8,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-        <activity android:name=".registrationChat"
+        <activity android:name=".Tasks"
             android:theme="@style/AppTheme.NoActionBar"
             ></activity>
+        <activity android:name=".EditTask"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".EditSchedule"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".InputTask"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".InputEditSchedule"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Weekly_Schedule"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".registrationChat"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ChatInput"
             android:theme="@style/AppTheme.NoActionBar" />

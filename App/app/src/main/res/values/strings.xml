@@ -19,5 +19,5 @@
     <string name="DetailedMoneyBottom">Is there\'s Something Wrong?</string>
     <string name="yesSomethingWrongData">My Money left for this month is not correct</string>
     <string name="editMonthly">I want to change my Monthly Allocation</string>
-
+    <string-array name="days"></string-array>
 </resources>
