@@ -25,14 +25,11 @@ public class editLeft extends DialogFragment {
         builder.setView(view);
 
         final EditText InputMoney = view.findViewById(R.id.MoneyInput);
-        InputMoney.setText(User.getInstance().get_LeftMoney()+"");
+        if(User.getInstance().get_LeftMoney()!=0.01)InputMoney.setText(User.getInstance().get_LeftMoney()+"");
         builder.setTitle("How much should it be?");
-        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Double FixedMoney = Double.parseDouble(InputMoney.getText().toString());
-                listener.LeftChangeIsYes(FixedMoney);
-            }
+        builder.setPositiveButton("Confirm", (dialog, which) -> {
+            Double FixedMoney = Double.parseDouble(InputMoney.getText().toString());
+            listener.LeftChangeIsYes(FixedMoney);
         });
         return builder.create();
     }

@@ -20,14 +20,11 @@ public class PopUpRename extends DialogFragment {
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         final View view = inflater.inflate(R.layout.activity_pop_up_rename,null);
         final EditText editText = view.findViewById(R.id.NewName);
-        editText.setText(user.get_UserName());
+        if(user.get_UserName()!="Non")editText.setText(user.get_UserName());
         builder.setView(view);
-        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String Name = editText.getText().toString();
-                listener.changeName(Name);
-            }
+        builder.setPositiveButton("Confirm", (dialog, which) -> {
+            String Name = editText.getText().toString();
+            listener.changeName(Name);
         });
     return builder.create();
     }
@@ -43,5 +40,5 @@ public class PopUpRename extends DialogFragment {
 
     public interface PopUpRenameListener{
         void changeName(String Name);
-}
+    }
 }

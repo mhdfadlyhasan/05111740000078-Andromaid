@@ -1,5 +1,6 @@
 package com.hzzzey.andromaid;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,7 +47,7 @@ public class Weekly_Schedule extends AppCompatActivity implements Adapter_List_a
     }
     public void onClick(View v)
     {
-        startActivity(new Intent(getApplicationContext(),InputEditSchedule.class));
+        startActivityForResult(new Intent(getApplicationContext(),InputEditSchedule.class),0);
     }
     private MaterialDayPicker.Weekday getDate(int i)
     {
@@ -123,5 +124,13 @@ public class Weekly_Schedule extends AppCompatActivity implements Adapter_List_a
     @Override
     public int getPosition() {
         return itemSelected;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Intent lazy = new Intent(this,Weekly_Schedule.class);
+        finish();
+        startActivity(lazy);
     }
 }

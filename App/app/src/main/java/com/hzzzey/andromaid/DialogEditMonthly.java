@@ -26,7 +26,7 @@ public class DialogEditMonthly extends DialogFragment  {
         builder.setView(view);
         builder.setTitle("How much money for your monthly allocation?");
         final EditText newMoney = view.findViewById(R.id.NewMoneyMonthly);
-        newMoney.setText(User.getInstance().get_MonthlyMoney()+"");
+        if(User.getInstance().get_MonthlyMoney()!=0.01)newMoney.setText(User.getInstance().get_MonthlyMoney()+"");
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7caf1a6b-4c0c-40e0-95fc-30d062ed2abe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Adapter_chat_choices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/BaseChoice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/ChatHistoryContract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/ChatHistoryDb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/DialogInputSpending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Fragment_Money_information.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/asdf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/monthlySpending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/todayspending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/res/drawable/user_choice_ballon.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/app/src/main/res/layout/layout_choices.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/AdapterChatList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Adapter_Chat_Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Adapter_Chat_Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Adapter_today_spending.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Adapter_today_spending.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/ChatInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/ChatInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Detailed_Daily_and_Surplus_money.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Detailed_Daily_and_Surplus_money.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Detailed_Monthly.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Detailed_Monthly.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/InputDataDummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/InputDataDummy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Money_Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/Money_Fragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/editLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/editLeft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/this_month_money_flows.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/this_month_money_flows.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/today_moneyflow_fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/java/com/hzzzey/andromaid/today_moneyflow_fragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/res/layout/activity_chat_input.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/res/layout/activity_chat_input.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/res/layout/activity_edit_left.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/res/layout/activity_money_input.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/app/src/main/res/layout/money.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/app/src/main/res/layout/money.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumen/tugas 5/05111740000078.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Dokumen/tugas 5/05111740000078.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumen/tugas 5/05111740000078.pdf.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Dokumen/tugas 5/05111740000078.pdf.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumen/tugas 5/~$111740000078.pdf.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dokumen/tugas 5/~WRL0005.tmp" beforeDir="false" />
-    </list>
+    <list default="true" id="7caf1a6b-4c0c-40e0-95fc-30d062ed2abe" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,5 +41,16 @@
       <updated>1585823011885</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
