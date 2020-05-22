@@ -102,7 +102,15 @@ DatePickerDialog.OnDateSetListener{
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
         String date = "You picked the following date: "+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
         Log.d("test", "succed" + date);
-        if(monthOfYear < 10)pickdays.setText(String.format("%s-0%s-%s",year,monthOfYear+1,dayOfMonth));
-        else pickdays.setText(String.format("%s-%s-%s",year,monthOfYear+1,dayOfMonth));
+        monthOfYear=monthOfYear+1;
+        String month;
+        if(monthOfYear < 10) month ="0"+monthOfYear;
+        else month = monthOfYear+"";
+
+        String days;
+        if(dayOfMonth < 10) days ="0"+dayOfMonth;
+        else days = dayOfMonth+"";
+        
+        pickdays.setText(String.format("%s-%s-%s",year,month,days));
     }
 }
