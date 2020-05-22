@@ -15,5 +15,8 @@
         android:icon="@drawable/ic_launcher_foreground"
         android:title="About"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/tasks_each_day"
+        android:title="tasks_each_day" />
 
 </menu>

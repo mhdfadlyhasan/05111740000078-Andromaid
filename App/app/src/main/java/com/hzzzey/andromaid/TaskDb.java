@@ -71,7 +71,7 @@ public class TaskDb extends SQLiteOpenHelper {
         final int TASK = 1;
         Calendar cal = Calendar.getInstance();
         Date temp = cal.getTime();
-        String Date = (String) DateFormat.format("yyyy-M-d", temp); // date
+        String Date = (String) DateFormat.format("yyyy-MM-d", temp); // date
         Log.d("test", Date);
         SQLiteDatabase dbScheduleRead = this.getReadableDatabase();
         List Schedule = new ArrayList<task_schedule_item>();
@@ -113,6 +113,30 @@ public class TaskDb extends SQLiteOpenHelper {
             String Time = cursors.getString(cursors.getColumnIndexOrThrow("Task_Time"));
             String Dates = cursors.getString(cursors.getColumnIndexOrThrow("Task_Date"));
             Schedule.add(new task_schedule_item(id,name,description,Place,Time,TASK,Dates));
+        }
+        cursors.close();
+        return Schedule;
+    }
+    public List<task_schedule_item> getList(int day)
+    {
+        day = day-1;
+        final int SCHEDULE = 0;
+        final int TASK = 1;
+        SQLiteDatabase dbScheduleRead = this.getReadableDatabase();
+        List Schedule = new ArrayList<task_schedule_item>();
+        Cursor cursors = dbScheduleRead.rawQuery
+                ("select _id, Name, Description, Place,Task_Time,Task_Date " +
+                        "from Task where strftime('%w',date(Task_Date))='"+ day +"' " ,null);
+        while(cursors.moveToNext()) {
+            int id = cursors.getInt(cursors.getColumnIndexOrThrow("_id"));
+            String name = cursors.getString(cursors.getColumnIndexOrThrow("Name"));
+            String description = cursors.getString(cursors.getColumnIndexOrThrow("Description"));
+            String Place = cursors.getString(cursors.getColumnIndexOrThrow("Place"));
+            String Time = cursors.getString(cursors.getColumnIndexOrThrow("Task_Time"));
+            String Date = cursors.getString(cursors.getColumnIndexOrThrow("Task_Date"));
+            Schedule.add(new task_schedule_item(id,name,description,Place,Time,TASK,Date));
+
+            Log.d("test","ok ada");
         }
         cursors.close();
         return Schedule;

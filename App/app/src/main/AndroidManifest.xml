@@ -2,17 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hzzzey.andromaid">
 
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-        <activity android:name=".Tasks"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
-        <activity android:name=".EditTask"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".task_same_day_due"
+            android:theme="@style/AppTheme.NoActionBar" ></activity>
+        <activity
+            android:name=".Tasks"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Notification_receiver"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EditTask"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EditSchedule"
             android:theme="@style/AppTheme.NoActionBar" />

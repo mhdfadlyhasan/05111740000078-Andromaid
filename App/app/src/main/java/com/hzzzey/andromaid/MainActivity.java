@@ -82,6 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             case R.id.tasks:
                 startActivity(new Intent(this,Tasks.class));
                 return true;
+            case R.id.tasks_each_day:
+                startActivity(new Intent(this,task_same_day_due.class));
+                return true;
 
         }
         return super.onOptionsItemSelected(item);
